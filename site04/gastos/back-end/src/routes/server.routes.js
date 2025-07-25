@@ -2,13 +2,20 @@ const express = require('express');
 const router = express.Router();
 
 const gastos = require('../controllers/gastos.controller.js');
-const usuarios = require('../controllers/usuarios.controllers');
+const usuarios = require('../controllers/usuarios.controllers.js');
 
 router.get('/site04/gastos',gastos.getGastos);
 router.post('/site04/gastos',gastos.addGastos);
+router.get('/site04/gastos/:id',gastos.getGastos_x_id);
+router.put('/site04/gastos/:id',gastos.editGastos);
+router.delete('/site04/gastos/:id',gastos.deleteGastos);
 
-router.get('/site04/usuarios',usuarios.getUsers);
+// Rutas CRUD para usuarios
+router.get('/site04/usuarios', usuarios.getUsers);
+//router.get('/site04/usuarios/:id', usuarios.getUserById);
 router.post('/site04/usuarios', usuarios.addUser);
+//router.put('/site04/usuarios/:id', usuarios.updateUser);
+//router.delete('/site04/usuarios/:id', usuarios.deleteUser);
 
 router.get('/site04', (req,res)=>{
  res.send('<h1>Hola mi sitio </h1>'+
@@ -21,8 +28,7 @@ router.get('/site04/about', (req,res)=>{
  res.send('<h1>Acerca de nosotros</h1>');
 });
 router.get('/site04/contacto', (req,res)=>{
-  res.sendFile('contacto.png',{root:__dirname
-  });
+  res.sendFile('./contacto.png',{root:__dirname});
 });
 
 router.use((req, res, next) => {

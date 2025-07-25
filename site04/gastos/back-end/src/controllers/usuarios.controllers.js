@@ -7,17 +7,17 @@ userControllers.addUser = async (req , res) => {
 
 userControllers.getUsers = async (req, res)=>{
     res.json([
-        {"Usuario":"Salud",
+        {"tipo":"Salud",
             "monto": 1000.0,
-            "Informacion": "Consultas médicas"
+            "descripcion": "Consultas médicas"
         },
-        {"Usuario":"Educación",
+        {"tipo":"Educación",
             "monto": 1500.0,
-            "Informacion": "Gastos en cursos y formación"
+            "descripcion": "Gastos en cursos y formación"
         },
-        {"Usuario":"Vivienda",
+        {"tipo":"Vivienda",
             "monto": 2000.0,
-            "Informacion": "Consultas servicios basicos"
+            "descripcion": "Consultas servicios basicos"
         }
     ]);
 }
